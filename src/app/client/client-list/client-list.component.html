@@ -1,34 +1,34 @@
 <div class="main-content">
 
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
 
         <ng-container matColumnDef="lastName">
-            <th mat-header-cell *matHeaderCellDef> Nom </th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom </th>
             <td mat-cell *matCellDef="let element"> <a [routerLink]="[element.id]">{{element.lastName}}</a> </td>
         </ng-container>
 
         <ng-container matColumnDef="firstName">
-            <th mat-header-cell *matHeaderCellDef> Prénom </th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Prénom </th>
             <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
         </ng-container>
 
         <ng-container matColumnDef="email">
-            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
             <td mat-cell *matCellDef="let element"> {{element.email}} </td>
         </ng-container>
 
         <ng-container matColumnDef="city">
-            <th mat-header-cell *matHeaderCellDef> Ville </th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Ville </th>
             <td mat-cell *matCellDef="let element"> {{element.city}} </td>
         </ng-container>
 
         <ng-container matColumnDef="country">
-            <th mat-header-cell *matHeaderCellDef> Pays </th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Pays </th>
             <td mat-cell *matCellDef="let element"> {{element.country}} </td>
         </ng-container>
 
         <ng-container matColumnDef="phone">
-            <th mat-header-cell *matHeaderCellDef> Téléphone </th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Téléphone </th>
             <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
         </ng-container>
 

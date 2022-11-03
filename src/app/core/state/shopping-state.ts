@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Action, Selector, State, StateContext } from "@ngxs/store";
-import { AddProduct } from "../actions/shopping-actions";
+import { AddProduct, DeleteProduct } from "../actions/shopping-actions";
 import { ShoppingStateModel } from "./shopping-state-model";
 
 @State<ShoppingStateModel>({
@@ -29,6 +29,17 @@ export class ShoppingState {
         const state = getState();
         patchState({
             products: [...state.products, payload],
+        });
+    }
+
+    @Action(DeleteProduct)
+    delete(
+        { getState, patchState }: StateContext<ShoppingStateModel>,
+        { payload }: DeleteProduct
+    ) {
+        const state = getState();
+        patchState({
+            products: state.products.filter((t) => t.id !== payload.id),
         });
     }
 }
