@@ -7,7 +7,7 @@ import { NotifierModule, NotifierOptions } from 'angular-notifier';
 import { AngularMaterialModule } from './angular-material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CatalogueComponent } from './catalogue/catalogue.component';
+import { CatalogueComponent } from './product/catalogue/catalogue.component';
 import { ClientModule } from './client/client.module';
 import { ChipActivateDirective } from './core/directive/chip-activate/chip-activate.directive';
 import { ProductCategoryPipe } from './core/pipe/product-category/product-category.pipe';
@@ -63,9 +63,7 @@ const customNotifierOptions: NotifierOptions = {
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    CatalogueComponent,
-    ProductCategoryPipe,
-    ChipActivateDirective,
+
     HomeComponent
   ],
   imports: [
