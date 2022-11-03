@@ -6,6 +6,8 @@ import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/internal/operators/map';
+import { Store } from '@ngxs/store';
+import { AddProduct } from 'src/app/core/actions/shopping-actions';
 
 @Component({
   selector: 'app-catalogue',
@@ -20,7 +22,7 @@ export class CatalogueComponent implements OnInit {
   filteredCategories: Set<ProductCategory> = new Set;
   filteredTerm: string = '';
   
-  constructor(private catalogueService: CatalogueService) {}
+  constructor(private catalogueService: CatalogueService, private store: Store) {}
 
   ngOnInit(): void {
     this.products = this.catalogueService.getAll();
@@ -60,5 +62,9 @@ export class CatalogueComponent implements OnInit {
       }
       ))
     );
+  }
+
+  addToShoppingList(product: Product): void{
+    this.store.dispatch(new AddProduct(product));
   }
 }

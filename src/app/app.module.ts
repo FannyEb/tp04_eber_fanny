@@ -3,19 +3,17 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxsModule } from '@ngxs/store';
 import { NotifierModule, NotifierOptions } from 'angular-notifier';
 import { AngularMaterialModule } from './angular-material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CatalogueComponent } from './product/catalogue/catalogue.component';
 import { ClientModule } from './client/client.module';
-import { ChipActivateDirective } from './core/directive/chip-activate/chip-activate.directive';
-import { ProductCategoryPipe } from './core/pipe/product-category/product-category.pipe';
+import { ShoppingState } from './core/state/shopping-state';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { ProductModule } from './product/product.module';
-import { NgxsModule } from '@ngxs/store';
 
 
 const customNotifierOptions: NotifierOptions = {
@@ -76,7 +74,7 @@ const customNotifierOptions: NotifierOptions = {
     ClientModule,
     AngularMaterialModule,
     ProductModule,
-    NgxsModule.forRoot()
+    NgxsModule.forRoot([ShoppingState])
   ],
   bootstrap: [AppComponent],
 })

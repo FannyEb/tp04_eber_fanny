@@ -8,8 +8,7 @@
                 <a mat-button [routerLink]="['/product']"> Catalogue </a>
             </div>
             <div class="leftItems">
-                <mat-icon *ngIf="numberProduct!=0" matBadge="numberProduct" matBadgeColor="warn" class="material-symbols-outlined">shopping_bag</mat-icon>
-                <mat-icon *ngIf="numberProduct===0" class="material-symbols-outlined">shopping_bag</mat-icon>
+                <mat-icon matBadge="{{numberProduct$ | async}}" matBadgeColor="warn" class="material-symbols-outlined">shopping_bag</mat-icon>
             </div>
         </mat-toolbar-row>
     </mat-toolbar>

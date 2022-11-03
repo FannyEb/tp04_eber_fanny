@@ -3,7 +3,8 @@
     <div class="filters">
         <div class="search">
             <mat-form-field class="form-group" appearance="legacy">
-                <input matInput type="text" placeholder="Search" [(ngModel)]="filteredTerm" (keypress)="getProductFiltered()">
+                <input matInput type="text" placeholder="Search" [(ngModel)]="filteredTerm"
+                    (keypress)="getProductFiltered()">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </mat-form-field>
         </div>
@@ -12,25 +13,27 @@
         <mat-form-field class="chip-list" appearance="legacy">
             <mat-label>Catégories</mat-label>
             <mat-chip-list multiple>
-              <mat-chip
-                  *ngFor="let category of categories"
-                  [value]="category"
-                  (click)="categoryFilterUpdate(category)" appChipActivate>
-                {{category | productCategory}}
-              </mat-chip>
+                <mat-chip *ngFor="let category of categories" [value]="category"
+                    (click)="categoryFilterUpdate(category)" appChipActivate>
+                    {{category | productCategory}}
+                </mat-chip>
             </mat-chip-list>
-          </mat-form-field>
+        </mat-form-field>
     </div>
 
     <!--products-->
     <div class="productList">
         <div *ngFor="let product of products | async">
-            <mat-card class="cardCatalogue" [routerLink]="[product.id]">
-                <img class="imgCatalogue" mat-card-image src="{{product.image}}" alt="product.description">
-                <mat-card-title class="cardTitleCatalogue">{{product.name}}</mat-card-title>
+            <mat-card class="cardCatalogue">
+                <img [routerLink]="[product.id]" class="imgCatalogue" mat-card-image src="{{product.image}}"
+                    alt="product.description">
+                <mat-card-title [routerLink]="[product.id]" class="cardTitleCatalogue">{{product.name}}</mat-card-title>
                 <mat-divider inset></mat-divider>
                 <mat-card-content class="content">
                     <p>{{product.price}}$</p>
+                    <button mat-icon-button color="primary" >
+                        <mat-icon (click)="addToShoppingList(product)">add</mat-icon>
+                    </button>
                 </mat-card-content>
             </mat-card>
         </div>

@@ -1,16 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Select } from '@ngxs/store';
+import { Observable } from 'rxjs';
+import { ShoppingState } from '../core/state/shopping-state';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
-  numberProduct = 0;
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  @Select(ShoppingState.getNbProducts)
+  numberProduct$!: Observable<number>;
 
 }
