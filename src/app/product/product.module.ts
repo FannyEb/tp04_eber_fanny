@@ -11,9 +11,9 @@ import { ProductInfoComponent } from './product-info/product-info.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 
 const routes: Routes = [
-  {path: '', component: CatalogueComponent},
+  {path: 'shopping', component: CatalogueComponent},
   {path: ':id', component: ProductInfoComponent},
-  {path: 'shopping', component: ShoppingListComponent}
+  {path: '', component: ShoppingListComponent}
 ];
 
 @NgModule({

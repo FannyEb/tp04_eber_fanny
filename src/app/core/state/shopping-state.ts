@@ -20,6 +20,11 @@ export class ShoppingState {
     static getListProducts(state: ShoppingStateModel) {
         return state.products;
     }
+    @Selector() 
+    static getTotalPrice(state: ShoppingStateModel) {
+        //arrondir à deux chiffres après la virgule
+        return state.products.reduce((acc, product) => acc + product.price, 0).toFixed(2);
+    }
 
     @Action(AddProduct)
     add(

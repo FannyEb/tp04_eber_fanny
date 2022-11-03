@@ -5,9 +5,9 @@
             <div>
                 <a mat-button [routerLink]="['/client','add']"> Ajout client </a>
                 <a mat-button [routerLink]="['/client']"> Liste client </a>
-                <a mat-button [routerLink]="['/product']"> Catalogue </a>
+                <a mat-button [routerLink]="['/product','shopping']"> Catalogue </a>
             </div>
-            <div class="leftItems" [routerLink]="['/product','shopping']">
+            <div class="leftItems" [routerLink]="['/product']">
                 <mat-icon matBadge="{{numberProduct$ | async}}" matBadgeColor="warn" class="material-symbols-outlined">shopping_bag</mat-icon>
             </div>
         </mat-toolbar-row>
