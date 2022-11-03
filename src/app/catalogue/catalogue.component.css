@@ -1,0 +1,47 @@
+.cardCatalogue{
+    width: 200px;
+    height: 300px;
+    margin: 1rem;
+}
+
+.productList{
+    display: flex;
+    flex-wrap: wrap;
+}
+.imgCatalogue{
+    height: 170px;
+}
+
+.cardTitleCatalogue{
+    height: 40px;
+}
+.content{
+    margin-top: 0.5em;
+}
+
+.search mat-form-field{
+    position: relative;
+}
+
+.search mat-form-field button {
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 50px;
+    position: absolute;
+    background: transparent;
+    border: transparent;
+    font-size: 20px;
+    cursor: pointer;
+    outline: 0;
+}
+
+.filters{
+    display: flex;
+    align-items: flex-end;
+}
+
+.chip-list{
+    margin-left: 1rem;
+    width: 100%;
+}

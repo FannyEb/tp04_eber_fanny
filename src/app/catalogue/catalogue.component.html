@@ -1,0 +1,45 @@
+<div class="main-content">
+    <!--search input-->
+    <div class="filters">
+        <div class="search">
+            <mat-form-field class="form-group" appearance="legacy">
+                <input matInput type="text" placeholder="Search" [(ngModel)]="filteredTerm" (keypress)="getProductFiltered()">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </mat-form-field>
+        </div>
+
+        <!--filter by category-->
+        <mat-form-field class="chip-list" appearance="legacy">
+            <mat-label>Catégories</mat-label>
+            <mat-chip-list multiple>
+              <mat-chip
+                  *ngFor="let category of categories"
+                  [value]="category"
+                  (click)="categoryFilterUpdate(category)" appChipActivate>
+                {{category | productCategory}}
+              </mat-chip>
+            </mat-chip-list>
+          </mat-form-field>
+    </div>
+
+
+
+
+    <!--products-->
+    <div class="productList">
+        <div *ngFor="let product of products | async">
+            <mat-card class="cardCatalogue">
+                <img class="imgCatalogue" mat-card-image src="{{product.image}}" alt="product.description">
+                <mat-card-title class="cardTitleCatalogue">{{product.name}}</mat-card-title>
+                <mat-divider inset></mat-divider>
+                <mat-card-content class="content">
+                    <mat-chip-list>
+                        <mat-chip>{{ product.category | productCategory}}</mat-chip>
+                    </mat-chip-list>
+                    <p>{{product.description}}</p>
+                    <p>{{product.price}}$</p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
