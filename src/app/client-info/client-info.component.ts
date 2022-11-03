@@ -11,14 +11,12 @@ import { ClientService } from '../core/service/client/client.service';
 export class ClientInfoComponent implements OnInit{
 
   @Output() back: EventEmitter<any> = new EventEmitter();
-  // @Input() client: Client = new Client()
   client: Client = new Client;
 
   constructor(private route: ActivatedRoute,private clientService: ClientService) { }
+
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.client = this.clientService.get(params['id']);
-    });
+    this.client = this.clientService.get(this.route.snapshot.params['id']);
   }
 
 }
