@@ -1,16 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-import { CatalogueComponent } from './catalogue/catalogue.component';
-import { ClientInfoComponent } from './client-info/client-info.component';
-import { FormComponent } from './form/form.component';
+import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
-    { path: '', component: FormComponent },
-    { path: 'client-form', component: FormComponent },
-    { path: 'client-info/:id', component: ClientInfoComponent },
-    {path: 'catalogue', component: CatalogueComponent}
+    { path: '', component: HomeComponent },
+    { path: 'client', loadChildren: () => import('./client/client.module').then(m => m.ClientModule) },
+    { path: 'product', loadChildren: () => import('./product/product.module').then(m => m.ProductModule)},
   ];
 
 @NgModule({

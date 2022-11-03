@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
-import { Client } from '../core/model/client';
-import { ClientService } from '../core/service/client/client.service';
+import { Client } from '../../core/model/client';
+import { ClientService } from '../../core/service/client/client.service';
 
 
 @Component({
@@ -30,7 +30,7 @@ export class FormComponent {
     var id = this.clientService.post(this.client);
     if (id) {
       this.notifier.notify('success', 'Le client a été ajouté avec succès');
-      this.router.navigate(['/client-info', id]);
+      this.router.navigate(['/client',id]);
     }
   }
 }
