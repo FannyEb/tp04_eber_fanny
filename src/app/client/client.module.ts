@@ -11,10 +11,13 @@ import { InputNumbersDirective } from '../core/directive/input-numbers/input-num
 import { PhoneNumberPipe } from '../core/pipe/phone-number/phone-number.pipe';
 import { ClientInfoComponent } from './client-info/client-info.component';
 import { FormComponent } from './form/form.component';
+import { ClientListComponent } from './client-list/client-list.component';
+import { ClientGuard } from '../core/guard/client.guard';
 
 const routes: Routes = [
   //add client list
-  { path: '', component: FormComponent },
+  { path: '', component: ClientListComponent, canActivate: [ClientGuard] },
+  { path: 'add', component: FormComponent },
   { path: ':id', component: ClientInfoComponent },
 ];
 
@@ -25,6 +28,7 @@ const routes: Routes = [
     InputNumbersDirective,
     InputLettersDirective,
     PhoneNumberPipe,
+    ClientListComponent,
   ],
   imports: [
     CommonModule,
@@ -32,6 +36,7 @@ const routes: Routes = [
     HttpClientModule,
     AngularMaterialModule,
     RouterModule.forChild(routes),
-  ]
+  ],
+  providers: [ ClientGuard],
 })
 export class ClientModule { }

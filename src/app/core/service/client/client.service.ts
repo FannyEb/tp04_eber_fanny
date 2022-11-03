@@ -25,4 +25,8 @@ export class ClientService {
   postLogin(): string {
     return 'Login ok';
   }
+
+  getNbClients(): number {
+    return this.clients.length;
+  }
 }

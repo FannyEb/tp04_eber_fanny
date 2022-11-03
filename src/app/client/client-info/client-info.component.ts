@@ -13,7 +13,7 @@ export class ClientInfoComponent implements OnInit{
   @Output() back: EventEmitter<any> = new EventEmitter();
   client: Client = new Client;
 
-  constructor(private route: ActivatedRoute,private clientService: ClientService) { }
+  constructor(private route: ActivatedRoute, private clientService: ClientService) { }
 
   ngOnInit() {
     this.client = this.clientService.get(this.route.snapshot.params['id']);
