@@ -22,21 +22,14 @@
           </mat-form-field>
     </div>
 
-
-
-
     <!--products-->
     <div class="productList">
         <div *ngFor="let product of products | async">
-            <mat-card class="cardCatalogue">
+            <mat-card class="cardCatalogue" [routerLink]="[product.id]">
                 <img class="imgCatalogue" mat-card-image src="{{product.image}}" alt="product.description">
                 <mat-card-title class="cardTitleCatalogue">{{product.name}}</mat-card-title>
                 <mat-divider inset></mat-divider>
                 <mat-card-content class="content">
-                    <mat-chip-list>
-                        <mat-chip>{{ product.category | productCategory}}</mat-chip>
-                    </mat-chip-list>
-                    <p>{{product.description}}</p>
                     <p>{{product.price}}$</p>
                 </mat-card-content>
             </mat-card>

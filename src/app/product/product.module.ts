@@ -7,9 +7,11 @@ import { ChipActivateDirective } from '../core/directive/chip-activate/chip-acti
 import { AngularMaterialModule } from '../angular-material.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductInfoComponent } from './product-info/product-info.component';
 
 const routes: Routes = [
-  {path: '', component: CatalogueComponent}
+  {path: '', component: CatalogueComponent},
+  {path: ':id', component: ProductInfoComponent},
 ];
 
 @NgModule({
@@ -17,6 +19,7 @@ const routes: Routes = [
     CatalogueComponent,
     ProductCategoryPipe,
     ChipActivateDirective,
+    ProductInfoComponent,
   ],
   imports: [
     CommonModule,

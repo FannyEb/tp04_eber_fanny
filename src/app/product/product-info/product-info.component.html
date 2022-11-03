@@ -1,0 +1,16 @@
+<div class="main-container" *ngIf="product">
+
+    <mat-card class="cardCatalogue" [routerLink]="[product.id]">
+        <mat-card-title class="cardTitleCatalogue">{{product.name}}</mat-card-title>
+        <mat-divider inset></mat-divider>
+        <img class="imgCatalogue" mat-card-image src="{{product.image}}" alt="product.description">
+        <mat-card-content class="content">
+            <mat-chip-list>
+                <mat-chip>{{ product.category | productCategory}}</mat-chip>
+            </mat-chip-list>
+            <p>{{product.description}}</p>
+            <mat-divider inset></mat-divider>
+            <p>{{product.price}}$</p>            
+        </mat-card-content>
+    </mat-card>
+</div>

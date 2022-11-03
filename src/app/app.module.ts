@@ -15,6 +15,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { ProductModule } from './product/product.module';
+import { NgxsModule } from '@ngxs/store';
 
 
 const customNotifierOptions: NotifierOptions = {
@@ -63,7 +64,6 @@ const customNotifierOptions: NotifierOptions = {
     AppComponent,
     HeaderComponent,
     FooterComponent,
-
     HomeComponent
   ],
   imports: [
@@ -75,7 +75,8 @@ const customNotifierOptions: NotifierOptions = {
     NotifierModule.withConfig(customNotifierOptions),
     ClientModule,
     AngularMaterialModule,
-    ProductModule
+    ProductModule,
+    NgxsModule.forRoot()
   ],
   bootstrap: [AppComponent],
 })
