@@ -16,7 +16,7 @@ export class ShoppingListComponent{
   @Select(ShoppingState.getTotalPrice)
   totalPrice$!: Observable<number>;
 
-  displayedColumns: string[] = ['name', 'price', 'action-delete'];
+  displayedColumns: string[] = ['name', 'quantity', 'price', 'action-delete'];
   constructor(private store: Store) { 
   }
 

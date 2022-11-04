@@ -14,16 +14,17 @@ import { ShoppingStateModel } from "./shopping-state-model";
 export class ShoppingState {
     @Selector()
     static getNbProducts(state: ShoppingStateModel) {
-        return state.products.length;
+        //somme des quantités
+        return state.products.reduce((acc, product) => acc + product.quantity, 0);
     }
     @Selector()
     static getListProducts(state: ShoppingStateModel) {
         return state.products;
     }
-    @Selector() 
+    @Selector()
     static getTotalPrice(state: ShoppingStateModel) {
-        //arrondir à deux chiffres après la virgule
-        return state.products.reduce((acc, product) => acc + product.price, 0).toFixed(2);
+        //somme des prix * quantité
+        return state.products.reduce((acc, product) => acc + product.price * product.quantity, 0).toFixed(2);
     }
 
     @Action(AddProduct)
@@ -33,9 +34,16 @@ export class ShoppingState {
     ) {
         const state = getState();
         patchState({
-            products: [...state.products, payload],
+            //add product if not already in the list or increment quantity
+            products: state.products.find((t) => t.id === payload.id)
+                ? state.products.map((t) =>
+                    t.id === payload.id ? { ...t, quantity: t.quantity + 1 } : t
+                )
+                : [...state.products, { ...payload, quantity: 1 }],
         });
     }
+
+
 
     @Action(DeleteProduct)
     delete(
@@ -44,7 +52,12 @@ export class ShoppingState {
     ) {
         const state = getState();
         patchState({
-            products: state.products.filter((t) => t.id !== payload.id),
+            //delete product if quantity is 1 or decrement quantity
+            products: state.products.find((t) => t.id === payload.id)?.quantity === 1
+                ? state.products.filter((t) => t.id !== payload.id)
+                : state.products.map((t) =>
+                    t.id === payload.id ? { ...t, quantity: t.quantity - 1 } : t
+                ),
         });
     }
 }

@@ -42,10 +42,16 @@
 
 .filters{
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-right: 1rem;
 }
 
 .chip-list{
-    margin-left: 1rem;
     width: 100%;
+}
+
+.main-content{
+    display: flex;
+    flex-direction: row;
 }

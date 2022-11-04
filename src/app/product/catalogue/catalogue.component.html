@@ -1,9 +1,9 @@
 <div class="main-content">
-    <!--search input-->
     <div class="filters">
+        <h2>Filtres</h2>
         <div class="search">
             <mat-form-field class="form-group" appearance="legacy">
-                <input matInput type="text" placeholder="Search" [(ngModel)]="filteredTerm"
+                <input matInput type="text" placeholder="Recherche" [(ngModel)]="filteredTerm"
                     (keypress)="getProductFiltered()">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </mat-form-field>
@@ -20,7 +20,7 @@
             </mat-chip-list>
         </mat-form-field>
     </div>
-
+    <mat-divider [vertical]="true"></mat-divider>
     <!--products-->
     <div class="productList">
         <div *ngFor="let product of products | async">
