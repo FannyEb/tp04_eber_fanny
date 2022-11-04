@@ -25,10 +25,10 @@
     <div class="productList">
         <div *ngFor="let product of products | async">
             <mat-card class="cardCatalogue">
-                <img [routerLink]="['/product',product.id]" class="imgCatalogue" mat-card-image src="{{product.image}}"
+                <a [routerLink]="['/product',product.id]"><img  class="imgCatalogue" mat-card-image src="{{product.image}}"
                     alt="product.description">
-                <mat-card-title [routerLink]="[product.id]" class="cardTitleCatalogue">{{product.name}}</mat-card-title>
-                <mat-divider inset></mat-divider>
+                <mat-card-title  class="cardTitleCatalogue">{{product.name}}</mat-card-title>
+                </a><mat-divider inset></mat-divider>
                 <mat-card-content class="content">
                     <p>{{product.price}}$</p>
                     <button mat-icon-button color="primary" >

@@ -4,6 +4,13 @@
     margin: 1rem;
 }
 
+mat-card-title{
+    color: black;
+}
+
+a{
+    text-decoration: none;
+}
 .productList{
     display: flex;
     flex-wrap: wrap;
