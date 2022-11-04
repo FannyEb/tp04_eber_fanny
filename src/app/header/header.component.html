@@ -1,15 +1,15 @@
 <header>
     <mat-toolbar color="primary">
         <mat-toolbar-row>
-            <h1 [routerLink]="['']">TP4</h1>
+            <a [routerLink]="['']"><h1>TP4</h1></a>
             <div>
                 <a mat-button [routerLink]="['/client','add']"> Ajout client </a>
                 <a mat-button [routerLink]="['/client']"> Liste client </a>
                 <a mat-button [routerLink]="['/product','shopping']"> Catalogue </a>
             </div>
-            <div class="leftItems" [routerLink]="['/product']">
+            <a class="leftItems" [routerLink]="['/product']">
                 <mat-icon matBadge="{{numberProduct$ | async}}" matBadgeColor="warn" class="material-symbols-outlined">shopping_bag</mat-icon>
-            </div>
+            </a>
         </mat-toolbar-row>
     </mat-toolbar>
 </header>
